@@ -1,9 +1,11 @@
 import React from 'react';
 import { Box, Typography, Avatar, IconButton } from '@mui/material';
 import { Favorite, ChatBubbleOutline, Share } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import './ArticleCard.scss';
 
 interface ArticleCardProps {
+  id: string;
   publication: string;
   publicationIcon: string;
   title: string;
@@ -13,9 +15,11 @@ interface ArticleCardProps {
   preview?: string;
   likes: number;
   comments: number;
+  date: string;
 }
 
 export const ArticleCard = ({
+  id,
   publication,
   publicationIcon,
   title,
@@ -25,12 +29,24 @@ export const ArticleCard = ({
   preview,
   likes,
   comments,
+  date,
 }: ArticleCardProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/article/${id}`);
+  };
+
+  const handleActionClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
-    <article className="article-card">
+    <article className="article-card" onClick={handleClick}>
       <div className="article-card__header">
         <Avatar src={publicationIcon} className="article-card__avatar" />
         <Typography className="article-card__publication">{publication}</Typography>
+        <Typography className="article-card__date">{date}</Typography>
       </div>
       
       <div className="article-card__content">
@@ -51,7 +67,7 @@ export const ArticleCard = ({
         )}
       </div>
       
-      <div className="article-card__actions">
+      <div className="article-card__actions" onClick={handleActionClick}>
         <IconButton className="article-card__action">
           <Favorite fontSize="small" />
           <span>{likes}</span>

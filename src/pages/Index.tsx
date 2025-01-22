@@ -4,7 +4,7 @@ import { CategoryNav } from '../components/CategoryNav';
 import { ArticleCard } from '../components/ArticleCard';
 import { FeaturedSidebar } from '../components/FeaturedSidebar';
 import { articles } from '../data/articles';
-import './Index.scss';
+import '../styles/index.scss';
 
 const Index = () => {
   return (
