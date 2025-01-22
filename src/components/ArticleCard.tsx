@@ -34,18 +34,38 @@ export const ArticleCard = ({
       <div className="article-card__header">
         <Avatar src={publicationIcon} className="article-card__avatar" />
         <Typography className="article-card__publication" dangerouslySetInnerHTML={{ __html: publication }} />
-        <Typography className="article-card__date">{date}</Typography>
+        <Typography className="article-card__date" sx={{
+              fontSize: {
+                xs: "0.7rem",
+                sm: "0.8rem"
+              },
+            }}>{date}</Typography>
       </div>
       
       <div className="article-card__content">
         <div className="article-card__text">
           <Typography variant="h2" className="article-card__title" dangerouslySetInnerHTML={{ __html: title }} />
           {preview && (
-            <Typography className="article-card__preview" >{preview}</Typography>
+            <Typography className="article-card__preview" sx={{
+              fontSize: {
+                xs: "0.7rem",
+                sm: "1rem"
+              },
+            }} >{preview}</Typography>
           )}
           <div className="article-card__meta">
-            <Typography>{author}</Typography>
-            <Typography>{readTime}</Typography>
+            <Typography sx={{
+              fontSize: {
+                xs: "0.7rem",
+                sm: "0.8rem"
+              },
+            }}>{author}</Typography>
+            <Typography sx={{
+              fontSize: {
+                xs: "0.7rem",
+                sm: "0.8rem"
+              },
+            }}>{readTime}</Typography>
           </div>
         </div>
         {image && (

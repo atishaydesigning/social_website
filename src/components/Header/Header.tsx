@@ -63,7 +63,13 @@ export const Header = () => {
         className="header"
       >
         <Toolbar className="header__toolbar">
-          <Typography variant="h5" className="header__title">
+          <Typography variant="h5" className="header__title" sx={{
+        fontSize: {
+          xs: "1rem",
+          sm: "1.3rem",
+        },
+        fontWeight: 600
+      }}>
             Ciao, Blogs
           </Typography>
           <div className="header__search">
@@ -78,7 +84,6 @@ export const Header = () => {
             color="primary"
             startIcon={<Add />}
             className="header__add-button"
-            onClick={handleClose}
           >
             Add Post
           </Button>

@@ -32,20 +32,19 @@ export const ArticleDetail = () => {
             <Typography className="article-detail__publication-name">{article.publication}</Typography>
             <Typography className="article-detail__date">{article.date}</Typography>
           </Box>
-          <Box className="article-detail__actions-top">
-            <IconButton>Subscribe</IconButton>
-            <IconButton>Play</IconButton>
-            <IconButton>More</IconButton>
-          </Box>
         </Box>
 
-        <Typography variant="h1" className="article-detail__title">
+        <Typography variant="h1" className="article-detail__title" sx={{
+          fontSize:{
+            xs : "12px"
+          }
+        }}>
           {article.title}
         </Typography>
 
         <Box className="article-detail__meta">
           <Typography>{article.author}</Typography>
-          <Typography>{article.readTime}</Typography>
+          <Typography sx={{fontSize:"14px"}}>{article.readTime}</Typography>
         </Box>
 
         {/* {article.image && ( */}

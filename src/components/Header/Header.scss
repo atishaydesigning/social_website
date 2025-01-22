@@ -5,6 +5,12 @@
   border-bottom: 1px solid $gray-light;
   background-color: $background-color;
 
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    height: 80px;
+    border-bottom: none;
+  }
+
   &__toolbar {
     display: flex;
     align-items: center;
@@ -13,7 +19,6 @@
   }
 
   &__title {
-    font-size: 24px;
     margin-right: 2rem;
     font-weight: 700;
     color: $text-color ;
@@ -38,18 +43,52 @@
     &-input {
       width: 100%;
     }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__add-button {
-    background-color: $primary-color ;
+    background-color: $primary-color;
     color: white;
     text-transform: none;
-    padding: 6px 16px;
+    padding: 8px 20px;
     border-radius: 20px;
+    font-size: 16px;
 
     &:hover {
       background-color: scale($primary-color, -10%);
+    }
 
+    @media (max-width: 768px) {
+      padding: 8px 16px;
+      font-size: 14px;
+      
+      span:not(.MuiButton-startIcon) {
+        display: none;
+      }
+      
+      .MuiButton-startIcon {
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding: 8px;
+      min-width: 0;
+      border-radius: 50%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__toolbar {
+      padding: 8px 16px;
+    }
+
+    &__title {
+      font-size: 20px;
+      margin-right: 1rem;
     }
   }
 }

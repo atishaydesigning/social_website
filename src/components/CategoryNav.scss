@@ -2,25 +2,49 @@
 
 .category-nav {
   border-bottom: 1px solid $gray-light;
-  overflow-x: hidden;
+  overflow-x: auto;
   white-space: nowrap;
-  padding: 12px 24px;
+  padding: 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 0px;
+    overflow-x: hidden;
+  }
   
   &__container {
     display: inline-flex;
-    gap: 12px;
+    gap: 8px;
+    padding: 0 4px;
+    
+    @media (min-width: 768px) {
+      gap: 10px;
+      padding: 0;
+    }
   }
   
   &__button {
-    padding: 6px 16px ;
-    border-radius: 20px ;
-    text-transform: none ;
-    font-size: 14px ;
-    color: $text-color ;
-    min-width: auto ;
+    padding: 4px 12px;
+    border-radius: 16px;
+    text-transform: none;
+    font-size: 13px;
+    color: $text-color;
+    min-width: auto;
+    
+    @media (min-width: 768px) {
+      padding: 0px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
     
     &-active {
-      background-color: rgb(245, 113, 65) !important;
+      background-color: rgb(255, 140, 99) !important;
       color: white;
     }
   }

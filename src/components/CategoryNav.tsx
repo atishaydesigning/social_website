@@ -30,6 +30,12 @@ export const CategoryNav = () => {
             className={`category-nav__button ${
               category === "Trending Places" ? "category-nav__button-active" : ""
             }`}
+            sx={{
+              fontSize: {
+                xs: "0.9rem",
+                sm: "1.5rem"
+              }
+            }}
           >
             {category}
           </Button>

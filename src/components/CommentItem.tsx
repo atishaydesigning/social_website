@@ -73,8 +73,8 @@ const CommentItem: React.FC<CommentItemProps> = ({
 
   return (
     <div
-      className="comment-item"
-      style={{ marginLeft: `${level * 20}px`, marginBottom: "0.5rem" }}
+      className="comment-item "
+      style={{ marginLeft: `${level * 20}px`, marginBottom: "0.5rem" , marginTop: "0.7rem" }}
     >
       
       <p>

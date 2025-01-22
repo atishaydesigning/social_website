@@ -87,6 +87,7 @@
 import React, { useState } from "react";
 import { IComment, Article } from "@/types";
 import CommentItem from "@/components/CommentItem";
+import './Comments.scss'
 
 interface CommentListProps {
   postId: number;
