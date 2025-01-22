@@ -52,7 +52,7 @@ const CommentItem: React.FC<CommentItemProps> = ({
 
   const addReplyToComments = (
     comments: IComment[],
-    parentId: number,
+    parentId: number | string,
     reply: IComment
   ): IComment[] => {
     return comments.map((c) => {

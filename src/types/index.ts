@@ -15,7 +15,7 @@ export interface Article {
 
 export interface IComment {
   id: string | number;
-  parentId: number | null;
+  parentId: string | number | null;
   postId: number;
   text: string;
   userName?: string;      
