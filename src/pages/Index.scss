@@ -1,11 +1,11 @@
-@import '../styles/main.scss';
+@use '../styles/main' as *;
 
 .index {
   min-height: 100vh;
   
   &__container {
-    padding-top: 32px !important;
-    padding-bottom: 32px !important;
+    padding-top: 32px ;
+    padding-bottom: 32px ;
   }
   
   &__content {

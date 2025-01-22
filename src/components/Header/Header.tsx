@@ -7,13 +7,13 @@ export const Header = () => {
   return (
     <AppBar position="static" color="transparent" elevation={0} className="header">
       <Toolbar className="header__toolbar">
-        <Typography variant="h6" className="header__title">
-          Search
+        <Typography variant="h5" className="header__title">
+          Ciao, Blogs
         </Typography>
         <div className="header__search">
           <Search className="header__search-icon" />
           <InputBase
-            placeholder="Search Substack"
+            placeholder="Search here ...."
             className="header__search-input"
           />
         </div>

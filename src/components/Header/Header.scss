@@ -1,19 +1,21 @@
-@import '../../styles/main.scss';
+@use '../../styles/main' as *;
 
 .header {
+  width: 100%;
   border-bottom: 1px solid $gray-light;
-  background-color: $background-color !important;
-  
+  background-color: $background-color;
+
   &__toolbar {
     display: flex;
     align-items: center;
-    padding: 12px 24px !important;
+    padding: 12px 24px;
+    justify-content: space-between;
   }
 
   &__title {
-    margin-right: 2rem !important;
-    font-weight: 600 !important;
-    color: $text-color !important;
+    margin-right: 2rem;
+    font-weight: 700;
+    color: $text-color ;
   }
 
   &__search {
@@ -38,14 +40,15 @@
   }
 
   &__add-button {
-    background-color: $primary-color !important;
-    color: white !important;
-    text-transform: none !important;
-    padding: 6px 16px !important;
-    border-radius: 20px !important;
-    
+    background-color: $primary-color ;
+    color: white;
+    text-transform: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+
     &:hover {
-      background-color: darken($primary-color, 5%) !important;
+      background-color: scale($primary-color, -10%);
+
     }
   }
 }

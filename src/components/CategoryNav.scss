@@ -1,8 +1,8 @@
-@import '../styles/main.scss';
+@use '../styles/main' as *;
 
 .category-nav {
   border-bottom: 1px solid $gray-light;
-  overflow-x: auto;
+  overflow-x: hidden;
   white-space: nowrap;
   padding: 12px 24px;
   
@@ -12,23 +12,23 @@
   }
   
   &__button {
-    padding: 6px 16px !important;
-    border-radius: 20px !important;
-    text-transform: none !important;
-    font-size: 14px !important;
-    color: $text-color !important;
-    min-width: auto !important;
+    padding: 6px 16px ;
+    border-radius: 20px ;
+    text-transform: none ;
+    font-size: 14px ;
+    color: $text-color ;
+    min-width: auto ;
     
     &:hover {
-      background-color: rgba($gray-light, 0.2) !important;
+      background-color: rgba($gray-light, 0.2) ;
     }
     
     &--active {
-      background-color: $text-color !important;
-      color: white !important;
+      background-color: $text-color ;
+      color: white ;
       
       &:hover {
-        background-color: darken($text-color, 10%) !important;
+        background-color: scale($text-color, -5%) ;
       }
     }
   }
