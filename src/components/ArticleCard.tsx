@@ -3,7 +3,7 @@ import { Box, Typography, Avatar, IconButton } from '@mui/material';
 import { Favorite, ChatBubbleOutline, Share } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import './ArticleCard.scss';
-import {ArticleCardProps} from "@/types"
+import {Article} from "@/types"
 
 
 export const ArticleCard = ({
@@ -18,7 +18,7 @@ export const ArticleCard = ({
   likes,
   comment_count,
   date,
-}: ArticleCardProps) => {
+}: Article) => {
   const navigate = useNavigate();
 
   const handleClick = () => {

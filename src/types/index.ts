@@ -1,5 +1,5 @@
 export interface Article {
-  id: number,
+  id: number | string,
   publication: string;
   publicationIcon?: string;
   title: string;
@@ -14,7 +14,7 @@ export interface Article {
 }
 
 export interface IComment {
-  id: number;
+  id: string | number;
   parentId: number | null;
   postId: number;
   text: string;
@@ -23,7 +23,7 @@ export interface IComment {
 }
 
 export interface ArticleCardProps {
-  id: string;
+  id: string | number;
   publication: string;
   publicationIcon: string;
   title: string;

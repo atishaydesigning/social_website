@@ -5,7 +5,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { theme } from "./theme";
 import { Header } from "./components/Header/Header";
 import Index from "./pages/Index";
-import { ArticleList } from "./components/ArticleList";
 import { ArticleDetail } from "./pages/ArticleDetails";
 import { articles } from "./data/articles";
 import { ArticleProvider } from "./context/ArticleContext";
@@ -20,7 +19,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/articles" element={<ArticleList />} />
           <Route path="/article/:id" element={<ArticleDetail />} />
         </Routes>
       </BrowserRouter>
