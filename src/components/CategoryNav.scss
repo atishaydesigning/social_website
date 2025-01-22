@@ -1,0 +1,35 @@
+@import '../styles/main.scss';
+
+.category-nav {
+  border-bottom: 1px solid $gray-light;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 12px 24px;
+  
+  &__container {
+    display: inline-flex;
+    gap: 12px;
+  }
+  
+  &__button {
+    padding: 6px 16px !important;
+    border-radius: 20px !important;
+    text-transform: none !important;
+    font-size: 14px !important;
+    color: $text-color !important;
+    min-width: auto !important;
+    
+    &:hover {
+      background-color: rgba($gray-light, 0.2) !important;
+    }
+    
+    &--active {
+      background-color: $text-color !important;
+      color: white !important;
+      
+      &:hover {
+        background-color: darken($text-color, 10%) !important;
+      }
+    }
+  }
+}

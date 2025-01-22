@@ -1,5 +1,7 @@
-import { Heart, MessageCircle, Share2 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import React from 'react';
+import { Box, Typography, Avatar, IconButton } from '@mui/material';
+import { Favorite, ChatBubbleOutline, Share } from '@mui/icons-material';
+import './ArticleCard.scss';
 
 interface ArticleCardProps {
   publication: string;
@@ -7,10 +9,10 @@ interface ArticleCardProps {
   title: string;
   author: string;
   readTime: string;
-  image: string;
+  image?: string;
+  preview?: string;
   likes: number;
   comments: number;
-  preview?: string;
 }
 
 export const ArticleCard = ({
@@ -20,49 +22,48 @@ export const ArticleCard = ({
   author,
   readTime,
   image,
+  preview,
   likes,
   comments,
-  preview,
 }: ArticleCardProps) => {
   return (
-    <article className="flex flex-col gap-4 pb-8 border-b border-substack-gray-200">
-      <div className="flex items-center gap-2">
-        <Avatar className="h-6 w-6">
-          <AvatarImage src={publicationIcon} />
-          <AvatarFallback>{publication[0]}</AvatarFallback>
-        </Avatar>
-        <span className="text-sm font-medium">{publication}</span>
+    <article className="article-card">
+      <div className="article-card__header">
+        <Avatar src={publicationIcon} className="article-card__avatar" />
+        <Typography className="article-card__publication">{publication}</Typography>
       </div>
-      <div className="flex gap-6">
-        <div className="flex-1">
-          <h2 className="text-xl font-bold mb-2">{title}</h2>
-          {preview && <p className="text-substack-gray-400 mb-2">{preview}</p>}
-          <div className="flex items-center gap-4 text-sm text-substack-gray-400">
-            <span>{author}</span>
-            <span>{readTime}</span>
+      
+      <div className="article-card__content">
+        <div className="article-card__text">
+          <Typography variant="h2" className="article-card__title">
+            {title}
+          </Typography>
+          {preview && (
+            <Typography className="article-card__preview">{preview}</Typography>
+          )}
+          <div className="article-card__meta">
+            <Typography>{author}</Typography>
+            <Typography>{readTime}</Typography>
           </div>
         </div>
         {image && (
-          <img
-            src={image}
-            alt={title}
-            className="w-[140px] h-[140px] object-cover rounded"
-          />
+          <img src={image} alt={title} className="article-card__image" />
         )}
       </div>
-      <div className="flex items-center gap-4">
-        <button className="flex items-center gap-1 text-sm text-substack-gray-400 hover:text-substack-text">
-          <Heart className="h-4 w-4" />
-          {likes}
-        </button>
-        <button className="flex items-center gap-1 text-sm text-substack-gray-400 hover:text-substack-text">
-          <MessageCircle className="h-4 w-4" />
-          {comments}
-        </button>
-        <button className="flex items-center gap-1 text-sm text-substack-gray-400 hover:text-substack-text ml-auto">
-          <Share2 className="h-4 w-4" />
-          Share
-        </button>
+      
+      <div className="article-card__actions">
+        <IconButton className="article-card__action">
+          <Favorite fontSize="small" />
+          <span>{likes}</span>
+        </IconButton>
+        <IconButton className="article-card__action">
+          <ChatBubbleOutline fontSize="small" />
+          <span>{comments}</span>
+        </IconButton>
+        <IconButton className="article-card__action article-card__action--share">
+          <Share fontSize="small" />
+          <span>Share</span>
+        </IconButton>
       </div>
     </article>
   );

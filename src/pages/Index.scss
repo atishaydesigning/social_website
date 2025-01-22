@@ -4,7 +4,16 @@
   min-height: 100vh;
   
   &__container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+  
+  &__content {
+    display: flex;
+    gap: 48px;
+  }
+  
+  &__main {
+    flex: 1;
   }
 }

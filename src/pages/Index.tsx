@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@mui/material';
-import { Header } from '../components/Header/Header';
+import { CategoryNav } from '../components/CategoryNav';
 import { ArticleCard } from '../components/ArticleCard';
 import { FeaturedSidebar } from '../components/FeaturedSidebar';
 import './Index.scss';
@@ -43,10 +43,10 @@ const articles = [
 const Index = () => {
   return (
     <div className="index">
-      <Header />
+      <CategoryNav />
       <Container maxWidth="lg" className="index__container">
-        <div className="flex gap-12">
-          <div className="flex-1">
+        <div className="index__content">
+          <div className="index__main">
             {articles.map((article, index) => (
               <ArticleCard key={index} {...article} />
             ))}

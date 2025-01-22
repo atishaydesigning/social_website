@@ -1,0 +1,51 @@
+@import '../styles/main.scss';
+
+.featured-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  
+  &__title {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-bottom: 24px !important;
+  }
+  
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  &__avatar {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  &__info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  &__name {
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  &__author {
+    color: $gray-medium !important;
+    font-size: 12px !important;
+  }
+  
+  &__add {
+    color: $primary-color !important;
+  }
+}

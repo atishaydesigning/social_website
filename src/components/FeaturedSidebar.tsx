@@ -1,6 +1,7 @@
-import { Plus } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
+import React from 'react';
+import { Typography, Avatar, IconButton } from '@mui/material';
+import { Add } from '@mui/icons-material';
+import './FeaturedSidebar.scss';
 
 const featuredPublications = [
   {
@@ -37,22 +38,23 @@ const featuredPublications = [
 
 export const FeaturedSidebar = () => {
   return (
-    <aside className="w-[300px] flex-shrink-0">
-      <h2 className="text-xl font-bold mb-4">Featured</h2>
-      <div className="space-y-4">
+    <aside className="featured-sidebar">
+      <Typography variant="h2" className="featured-sidebar__title">
+        Featured
+      </Typography>
+      <div className="featured-sidebar__list">
         {featuredPublications.map((pub) => (
-          <div key={pub.name} className="flex items-center gap-4">
-            <Avatar className="h-10 w-10">
-              <AvatarImage src={pub.icon} />
-              <AvatarFallback>{pub.name[0]}</AvatarFallback>
-            </Avatar>
-            <div className="flex-1">
-              <h3 className="font-medium">{pub.name}</h3>
-              <p className="text-sm text-substack-gray-400">By {pub.author}</p>
+          <div key={pub.name} className="featured-sidebar__item">
+            <Avatar src={pub.icon} className="featured-sidebar__avatar" />
+            <div className="featured-sidebar__info">
+              <Typography className="featured-sidebar__name">{pub.name}</Typography>
+              <Typography className="featured-sidebar__author">
+                By {pub.author}
+              </Typography>
             </div>
-            <Button size="icon" variant="ghost" className="text-substack-orange">
-              <Plus className="h-5 w-5" />
-            </Button>
+            <IconButton className="featured-sidebar__add">
+              <Add />
+            </IconButton>
           </div>
         ))}
       </div>
