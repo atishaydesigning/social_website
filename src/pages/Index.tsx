@@ -1,7 +1,9 @@
-import { Header } from "@/components/Header";
-import { CategoryNav } from "@/components/CategoryNav";
-import { ArticleCard } from "@/components/ArticleCard";
-import { FeaturedSidebar } from "@/components/FeaturedSidebar";
+import React from 'react';
+import { Container } from '@mui/material';
+import { Header } from '../components/Header/Header';
+import { ArticleCard } from '../components/ArticleCard';
+import { FeaturedSidebar } from '../components/FeaturedSidebar';
+import './Index.scss';
 
 const articles = [
   {
@@ -40,10 +42,9 @@ const articles = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="index">
       <Header />
-      <CategoryNav />
-      <main className="container mx-auto px-4 py-8">
+      <Container maxWidth="lg" className="index__container">
         <div className="flex gap-12">
           <div className="flex-1">
             {articles.map((article, index) => (
@@ -52,7 +53,7 @@ const Index = () => {
           </div>
           <FeaturedSidebar />
         </div>
-      </main>
+      </Container>
     </div>
   );
 };

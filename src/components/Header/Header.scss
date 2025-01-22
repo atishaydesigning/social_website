@@ -1,0 +1,41 @@
+@import '../../styles/main.scss';
+
+.header {
+  border-bottom: 1px solid $gray-light;
+  
+  &__title {
+    margin-right: 2rem;
+  }
+
+  &__search {
+    position: relative;
+    flex-grow: 1;
+    max-width: 400px;
+    margin-right: 2rem;
+    background-color: rgba($gray-light, 0.1);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+
+    &-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $gray-medium;
+    }
+
+    &-input {
+      margin-left: 2rem;
+      width: 100%;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      text-transform: none;
+    }
+  }
+}
