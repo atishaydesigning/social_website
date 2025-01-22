@@ -1,28 +1,25 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { theme } from "./theme";
-import { Header } from "./components/Header/Header";
-import Index from "./pages/Index";
-import { ArticleDetail } from "./pages/ArticleDetails";
-import { articles } from "./data/articles";
+import { ThemeProvider } from "@mui/material/styles";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Header } from "./components/header/Header";
 import { ArticleProvider } from "./context/ArticleContext";
-
+import { ArticleDetail } from "./pages/ArticleDetails";
+import Index from "./pages/Index";
+import { theme } from "./theme";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-    <ArticleProvider>
       <CssBaseline />
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/article/:id" element={<ArticleDetail />} />
-        </Routes>
+        <ArticleProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/article/:id" element={<ArticleDetail />} />
+          </Routes>
+        </ArticleProvider>
       </BrowserRouter>
-    </ArticleProvider>
     </ThemeProvider>
   );
 }

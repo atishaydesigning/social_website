@@ -1,9 +1,8 @@
 import React from 'react';
 import { Container } from '@mui/material';
-import { CategoryNav } from '../components/CategoryNav';
-import { ArticleCard } from '../components/ArticleCard';
-import { FeaturedSidebar } from '../components/FeaturedSidebar';
-// import { articles } from '../data/articles';
+import { CategoryNav } from '../components/article/CategoryNav';
+import { ArticleCard } from '../components/article/ArticleCard';
+import { FeaturedSidebar } from '../components/article/FeaturedSidebar';
 import '../styles/index.scss';
 import { useArticleContext } from '@/context/ArticleContext';
 

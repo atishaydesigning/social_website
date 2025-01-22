@@ -1,11 +1,10 @@
 import { Box, Container, Typography, IconButton, Avatar } from '@mui/material';
 import { Favorite, ChatBubbleOutline, Share } from '@mui/icons-material';
 import { useParams } from 'react-router-dom';
-import { Comments } from '../components/Comments';
+import { Comments } from '../components/article/Comments';
 import './ArticleDetails.scss';
 import { useEffect, useState } from 'react';
 import { Article } from '@/types';
-// import { articles } from '@/data/articles';
 import { useArticleContext } from '@/context/ArticleContext';
 
 export const ArticleDetail = () => {

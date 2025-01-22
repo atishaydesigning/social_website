@@ -1,4 +1,4 @@
-import TestEditor from "./core/TestEditor";
+import TestEditor from "../core/TestEditor";
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -7,8 +7,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import '../styles/AddPost.scss';
+import './AddPost.scss';
 import { useNavigate } from "react-router-dom";
+import { PostHandlerProps } from "@/types";
 
 const StyledButton = styled(Button)({
   textTransform: 'none',
@@ -46,7 +47,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-const AddPost = ({handleAddPost, setTitle, setContent, handleFileChange, open, handleClose}: any) => {
+
+
+const AddPost = ({handleAddPost, setTitle, setContent, handleFileChange, open, handleClose}:PostHandlerProps) => {
 const navigate = useNavigate();
   const handleAdd =()=>{
     handleAddPost();

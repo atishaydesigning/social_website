@@ -1,14 +1,13 @@
-// context/articleContext.tsx
 import React, { createContext, useState, useContext, ReactNode } from "react";
 import { articles as data } from "@/data/articles";
 import { Article } from "@/types";
 
-// Define the context
-export const ArticleContext = createContext<ArticleContextType | undefined>(undefined);
-
 interface ArticleProviderProps {
   children: ReactNode;
 }
+
+// Define the context
+export const ArticleContext = createContext<ArticleContextType | undefined>(undefined);
 
 // Define the context value type
 interface ArticleContextType {

@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import { IComment, Article } from "@/types";
-
-interface CommentItemProps {
-  comment: IComment;
-  postId: number;
-  setPosts: React.Dispatch<React.SetStateAction<Article[]>>;
-  level: number;
-}
+import { IComment, CommentItemProps } from "@/types";
+import { Button } from "@mui/material";
 
 const CommentItem: React.FC<CommentItemProps> = ({
   comment,
@@ -81,9 +75,12 @@ const CommentItem: React.FC<CommentItemProps> = ({
         <strong>{comment.userName || "Anonymous"}</strong>: {comment.text}
       </p>
 
-      <button onClick={toggleReplyForm}>
+      {/* <button onClick={toggleReplyForm} >
         {showReplyForm ? "Cancel" : "Reply"}
-      </button>
+      </button> */}
+      <Button onClick={toggleReplyForm} variant="contained">
+      {showReplyForm ? "Cancel" : "Reply"}
+      </Button>
 
       {showReplyForm && (
         <form onSubmit={handleAddReply} style={{ marginTop: "0.5rem" }} className="comment-form">
@@ -93,7 +90,7 @@ const CommentItem: React.FC<CommentItemProps> = ({
             value={replyText}
             onChange={(e) => setReplyText(e.target.value)}
           />
-          <button type="submit">Add Reply</button>
+          <Button variant="contained">Add Reply</Button>
         </form>
       )}
 

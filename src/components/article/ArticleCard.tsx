@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Avatar, IconButton } from '@mui/material';
+import { Typography, Avatar, IconButton } from '@mui/material';
 import { Favorite, ChatBubbleOutline, Share } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import './ArticleCard.scss';

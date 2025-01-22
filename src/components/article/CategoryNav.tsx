@@ -21,16 +21,21 @@ const categories = [
 ];
 
 export const CategoryNav = () => {
-  const [activeClass,setActiveClass]=useState<string>("Trending Places")
+  const [activeClass, setActiveClass] = useState<string>("Trending Places");
   return (
     <Box className="category-nav">
       <div className="category-nav__container">
         {categories.map((category) => (
-          <NavLink  className={ category === activeClass ? "category-nav__button-active" : '' } to="/">
+          <NavLink
+            key={category}
+            className={
+              category === activeClass ? "category-nav__button-active" : ""
+            }
+            to="/"
+          >
             <Button
-              key={category}
               className={`category-nav__button`}
-              onClick={()=>setActiveClass(category)}
+              onClick={() => setActiveClass(category)}
               sx={{
                 fontSize: {
                   xs: "0.9rem",

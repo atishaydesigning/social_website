@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AppBar, Toolbar, Typography, Button, InputBase } from "@mui/material";
 import { Search, Add } from "@mui/icons-material";
 import "./Header.scss";
-import AddPost from "../AddPost";
+import AddPost from "../article/AddPost";
 import { Article } from "@/types";
 import { articles } from "@/data/articles";
 import { useArticleContext } from "@/context/ArticleContext";
@@ -18,29 +18,10 @@ export const Header = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) return;
     const file = e.target.files[0];
-    // Convert file to an object URL
     const fileUrl = URL.createObjectURL(file);
     setImageFileUrl(fileUrl);
   };
 
-  // const handleAddPost = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   console.log(title)
-  //   if (!title || !content) return;
-
-  //   const newPost: Article = {
-  //     id: Date.now(),
-  //     title,
-  //     publication:content,
-  //     comments: [],
-  //     image: imageFileUrl, // store the file’s object URL
-  //   };
-
-  //   setPosts([newPost, ...posts]);
-  //   setTitle("");
-  //   setContent("");
-  //   setImageFileUrl("");
-  // };
 
   const handleAddPost = () => {
     addArticle({
@@ -116,10 +97,7 @@ export const Header = () => {
             startIcon={<Add />}
             className="header__add-button"
             onClick={handleClose}
-
-            style={{
-              color: "#ffffff"
-            }}
+            sx={{color:"white"}}
           >
             Add Post
           </Button>

@@ -1,8 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import type { Editor as TinyMCEEditor } from 'tinymce';
-// import { useQuill } from "react-quilljs";
-// import "quill/dist/quill.snow.css";
 
 interface TestEditorProps {
   updateFunction: React.Dispatch<React.SetStateAction<string>>;
@@ -10,19 +8,13 @@ interface TestEditorProps {
 
 const TestEditor: React.FC<TestEditorProps> = ({ updateFunction }) => {
   const editorRef = useRef<TinyMCEEditor | null>(null);
-  // const { quill, quillRef } = useQuill({ placeholder: "123" });
 
-// console.log(quill,"quill")
   const logContent = () => {
     if (editorRef.current) {
       const content = editorRef.current.getContent();
       updateFunction(content);
     }
   };
-
-  // useEffect(() => {
-  //   updateFunction(quill?.root?.innerHTML);
-  // }, [quill])
 
   return (
     <div>
@@ -58,9 +50,6 @@ const TestEditor: React.FC<TestEditorProps> = ({ updateFunction }) => {
           media_live_embeds: true,
         }}
       />
-      {/* <div style={{ width: 500, height: 300 }}>
-      <div ref={quillRef} />
-    </div> */}
     </div>
   );
 };
