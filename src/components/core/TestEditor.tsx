@@ -32,10 +32,11 @@ const TestEditor: React.FC<TestEditorProps> = ({ updateFunction }) => {
           editorRef.current = editor as unknown as TinyMCEEditor;
         }}
         onChange={logContent}
-        initialValue="<p>Write your Facebook pxost here...</p>"
+        initialValue=""
         init={{
           height: 300,
           menubar: false,
+          placeholder:"write your message here.",
           plugins: [
             'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
             'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
@@ -43,8 +44,7 @@ const TestEditor: React.FC<TestEditorProps> = ({ updateFunction }) => {
           ],
           toolbar: `
             undo redo | bold italic underline strikethrough forecolor backcolor | fontselect fontsizeselect formatselect | 
-            alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link unlink anchor image media emoticons charmap | 
-            insertdatetime table | preview fullscreen removeformat wordcount help
+            alignleft aligncenter alignright alignjustify | bullist numlist outdent indent
           `,
           toolbar_mode: 'wrap',
           content_style: 'body { font-family:Arial,Helvetica,sans-serif; font-size:14px }',

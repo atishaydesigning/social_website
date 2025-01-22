@@ -9,15 +9,13 @@ import { useArticleContext } from '@/context/ArticleContext';
 
 const Index = () => {
     const { articles } = useArticleContext();  
-  
-    console.log("articles",articles)
-  return (
+    return (
     <div className="index">
       <CategoryNav />
       <Container maxWidth="lg" className="index__container">
         <div className="index__content">
           <div className="index__main">
-            {articles.map((article, index) => (
+            {articles.reverse().map((article, index) => (
               <ArticleCard key={`${article.title}-${index}`} {...article} />
             ))}
           </div>

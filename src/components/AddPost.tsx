@@ -8,6 +8,7 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import '../styles/AddPost.scss';
+import { useNavigate } from "react-router-dom";
 
 const StyledButton = styled(Button)({
   textTransform: 'none',
@@ -46,10 +47,11 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 const AddPost = ({handleAddPost, setTitle, setContent, handleFileChange, open, handleClose}: any) => {
-
+const navigate = useNavigate();
   const handleAdd =()=>{
     handleAddPost();
     handleClose();
+    navigate("/");
   }
   return (
     <BootstrapDialog

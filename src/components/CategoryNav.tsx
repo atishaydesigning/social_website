@@ -1,6 +1,7 @@
-import React from 'react';
-import { Box, Button } from '@mui/material';
-import './CategoryNav.scss';
+import React, { useState } from "react";
+import { Box, Button } from "@mui/material";
+import "./CategoryNav.scss";
+import { NavLink } from "react-router-dom";
 
 const categories = [
   "AI & Tech",
@@ -16,29 +17,30 @@ const categories = [
   "Pop Culture",
   "Fashion",
   "Nomad Life",
-  "Esports"
+  "Esports",
 ];
 
-
 export const CategoryNav = () => {
+  const [activeClass,setActiveClass]=useState<string>("Trending Places")
   return (
     <Box className="category-nav">
       <div className="category-nav__container">
         {categories.map((category) => (
-          <Button
-            key={category}
-            className={`category-nav__button ${
-              category === "Trending Places" ? "category-nav__button-active" : ""
-            }`}
-            sx={{
-              fontSize: {
-                xs: "0.9rem",
-                sm: "1.5rem"
-              }
-            }}
-          >
-            {category}
-          </Button>
+          <NavLink  className={ category === activeClass ? "category-nav__button-active" : '' } to="/">
+            <Button
+              key={category}
+              className={`category-nav__button`}
+              onClick={()=>setActiveClass(category)}
+              sx={{
+                fontSize: {
+                  xs: "0.9rem",
+                  sm: "1.5rem",
+                },
+              }}
+            >
+              {category}
+            </Button>
+          </NavLink>
         ))}
       </div>
     </Box>

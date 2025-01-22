@@ -29,7 +29,7 @@ export const ArticleDetail = () => {
         <Box className="article-detail__header">
           <Box className="article-detail__publication">
             <Avatar src={article.publicationIcon} className="article-detail__avatar" />
-            <Typography className="article-detail__publication-name">{article.publication}</Typography>
+            <Typography className="article-detail__publication-name" dangerouslySetInnerHTML={{ __html: article?.publication }} />
             <Typography className="article-detail__date">{article.date}</Typography>
           </Box>
         </Box>
@@ -38,9 +38,7 @@ export const ArticleDetail = () => {
           fontSize:{
             xs : "12px"
           }
-        }}>
-          {article.title}
-        </Typography>
+        }} dangerouslySetInnerHTML={{ __html: article?.title }} />
 
         <Box className="article-detail__meta">
           <Typography>{article.author}</Typography>
