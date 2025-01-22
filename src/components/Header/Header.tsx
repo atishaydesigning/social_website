@@ -6,6 +6,7 @@ import AddPost from "../AddPost";
 import { Article } from "@/types";
 import { articles } from "@/data/articles";
 import { useArticleContext } from "@/context/ArticleContext";
+import { Link, NavLink } from "react-router-dom";
 
 export const Header = () => {
   const [title, setTitle] = useState("");
@@ -63,15 +64,21 @@ export const Header = () => {
         className="header"
       >
         <Toolbar className="header__toolbar">
-          <Typography variant="h5" className="header__title" sx={{
-        fontSize: {
-          xs: "1rem",
-          sm: "1.3rem",
-        },
-        fontWeight: 600
-      }}>
-            Ciao, Blogs
-          </Typography>
+          <NavLink to="/">
+            <Typography
+              variant="h5"
+              className="header__title"
+              sx={{
+                fontSize: {
+                  xs: "1rem",
+                  sm: "1.3rem",
+                },
+                fontWeight: 600,
+              }}
+            >
+              Ciao, Blogs
+            </Typography>
+          </NavLink>
           <div className="header__search">
             <Search className="header__search-icon" />
             <InputBase
@@ -84,6 +91,7 @@ export const Header = () => {
             color="primary"
             startIcon={<Add />}
             className="header__add-button"
+            onClick={handleClose}
           >
             Add Post
           </Button>

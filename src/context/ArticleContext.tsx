@@ -7,14 +7,14 @@ import { Article } from "@/types";
 export const ArticleContext = createContext<ArticleContextType | undefined>(undefined);
 
 interface ArticleProviderProps {
-  children: ReactNode; // Type for children prop
+  children: ReactNode;
 }
 
 // Define the context value type
 interface ArticleContextType {
   articles: Article[];
   addArticle: (article: Article) => void;
-  removeArticle: (id: number) => void;
+  setArticles: React.Dispatch<React.SetStateAction<Article[]>>,
 }
 
 // ArticleProvider component
@@ -26,16 +26,9 @@ export const ArticleProvider = ({ children }: ArticleProviderProps) => {
     setArticles((prevArticles) => [...prevArticles, article]);
   };
 
-  // Function to remove an article by id
-  const removeArticle = (id: number) => {
-    setArticles((prevArticles) =>
-      prevArticles.filter((article) => article.id !== id)
-    );
-  };
-
   // Provide the state and actions
   return (
-    <ArticleContext.Provider value={{ articles, addArticle, removeArticle }}>
+    <ArticleContext.Provider value={{ articles, setArticles, addArticle }}>
       {children}
     </ArticleContext.Provider>
   );

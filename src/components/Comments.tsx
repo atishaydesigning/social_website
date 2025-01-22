@@ -111,7 +111,7 @@ export const Comments: React.FC<CommentListProps> = ({
       postId,
       parentId: null,
       text: commentText,
-      userName: window.localStorage.getItem("USER") ?? "Anonymous", // fallback if blank
+      userName: window.localStorage.getItem("USER") ?? "Anonymous",
       replies: [],
     };
 
@@ -120,6 +120,7 @@ export const Comments: React.FC<CommentListProps> = ({
         if (post.id === postId) {
           return { ...post, comments: [...post.comments, newComment] };
         }
+        
         return post;
       })
     );

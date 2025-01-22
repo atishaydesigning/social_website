@@ -5,21 +5,21 @@ import { Comments } from '../components/Comments';
 import './ArticleDetails.scss';
 import { useEffect, useState } from 'react';
 import { Article } from '@/types';
-import { articles } from '@/data/articles';
+// import { articles } from '@/data/articles';
+import { useArticleContext } from '@/context/ArticleContext';
 
 export const ArticleDetail = () => {
-  const [article, setArticle] = useState<Article>()
+  const [article, setArticle] = useState<Article>() 
+  const { articles, setArticles } = useArticleContext();  
   const { id } = useParams();
   
+  console.log("article",article)
   useEffect(() => {
     if(id){
       const data = articles.find((a:Article) => a.id === parseInt(id));
       setArticle(data)
     }
-  }, [id])
-
-  console.log(article,"article")
-
+  }, [id,articles])
   
   if (!article) return <div>Article not found</div>;
 
@@ -70,7 +70,7 @@ export const ArticleDetail = () => {
           </IconButton>
         </Box>
 
-        <Comments postId={article?.id} setPosts={()=>{}} comments={article.comments} />
+        <Comments postId={article?.id} setPosts={setArticles} comments={article.comments} />
       </Container>
     </Box>
   );
