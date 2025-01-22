@@ -23,6 +23,7 @@ export const ArticleDetail = () => {
   
   if (!article) return <div>Article not found</div>;
 
+  console.log(article.publicationIcon)
   return (
     <Box className="article-detail">
       <Container maxWidth="lg">
@@ -36,13 +37,13 @@ export const ArticleDetail = () => {
 
         <Typography variant="h1" className="article-detail__title" sx={{
           fontSize:{
-            xs : "12px"
+            xs:"21px",
           }
         }} dangerouslySetInnerHTML={{ __html: article?.title }} />
 
         <Box className="article-detail__meta">
-          <Typography>{article.author}</Typography>
-          <Typography sx={{fontSize:"14px"}}>{article.readTime}</Typography>
+          <Typography sx={{fontSize:"16px"}}>{article.author}</Typography>
+          <Typography sx={{fontSize:"13px"}}>{article.readTime}</Typography>
         </Box>
 
         {/* {article.image && ( */}

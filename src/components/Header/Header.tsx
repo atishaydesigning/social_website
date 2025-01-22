@@ -49,6 +49,13 @@ export const Header = () => {
       publication: content,
       comments: [],
       image: imageFileUrl,
+      publicationIcon: "/p3.jpg",
+      author: "KATE WATSON-SMYTH",
+      readTime: "11 MIN READ",
+      preview: "What to do about bad lighting? How do I overcome decision paralysis? Is it OK to rip out original features? Can I use strong colour in small rooms? How to hide the TV – and more of your questions answered",
+      likes: 849,
+      comment_count: 69,
+      date:"12/01/25",
     });
   };
 
@@ -64,7 +71,11 @@ export const Header = () => {
         className="header"
       >
         <Toolbar className="header__toolbar">
-          <NavLink to="/">
+          <NavLink to="/"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+          }}>
             <Typography
               variant="h5"
               className="header__title"
@@ -80,18 +91,35 @@ export const Header = () => {
             </Typography>
           </NavLink>
           <div className="header__search">
-            <Search className="header__search-icon" />
-            <InputBase
-              placeholder="Search here ...."
-              className="header__search-input"
-            />
-          </div>
+  <Search
+    className="header__search-icon"
+    sx={{
+      fontSize: "20px",
+    }}
+  />
+  <InputBase
+    placeholder="Search here ...."
+    className="header__search-input"
+    sx={{
+      "&::placeholder": {
+        fontSize: "14px", 
+        color: "#9e9e9e",
+      },
+      fontSize: "14px",
+    }}
+  />
+</div>
+
           <Button
             variant="contained"
             color="primary"
             startIcon={<Add />}
             className="header__add-button"
             onClick={handleClose}
+
+            style={{
+              color: "#ffffff"
+            }}
           >
             Add Post
           </Button>

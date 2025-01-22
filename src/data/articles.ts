@@ -4,7 +4,7 @@ export const articles: Article[] = [
   {
     id: 1,
     publication: "THE GENE POOL",
-    publicationIcon: "./p1.jpg",
+    publicationIcon: "/p1.jpg",
     title: "Courage & Cowardice",
     author: "GENE WEINGARTEN",
     readTime: "5 MIN READ",
@@ -39,7 +39,7 @@ export const articles: Article[] = [
   {
     id: 2,
     publication: "BITS & PIECES",
-    publicationIcon: "./p2.jpg",
+    publicationIcon: "/p2.jpg",
     title: "The Sweet Spot",
     author: "STEVE SKROVAN",
     readTime: "9 MIN READ",
@@ -74,8 +74,8 @@ export const articles: Article[] = [
   },
   {
     id: 3,
-    publication: "MAD ABOUT THE HOUSE BY KATE WATSON-SMYTH",
-    publicationIcon: "./p3.jpg",
+    publication: "WATSON-SMYTH",
+    publicationIcon: "/p3.jpg",
     title: "Your decorating dilemmas solved",
     author: "KATE WATSON-SMYTH",
     readTime: "11 MIN READ",

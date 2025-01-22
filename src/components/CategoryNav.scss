@@ -44,8 +44,8 @@
     }
     
     &-active {
-      background-color: rgb(255, 140, 99) !important;
-      color: white;
+      background-color: $primary-color !important;
+      color: white !important;
       border-radius: 16px;
     }
   }

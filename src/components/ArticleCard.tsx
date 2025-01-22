@@ -33,56 +33,102 @@ export const ArticleCard = ({
     <article className="article-card" onClick={handleClick}>
       <div className="article-card__header">
         <Avatar src={publicationIcon} className="article-card__avatar" />
-        <Typography className="article-card__publication" dangerouslySetInnerHTML={{ __html: publication }} />
-        <Typography className="article-card__date" sx={{
-              fontSize: {
-                xs: "0.7rem",
-                sm: "0.8rem"
-              },
-            }}>{date}</Typography>
+        <Typography
+          className="article-card__publication"
+          dangerouslySetInnerHTML={{ __html: publication }}
+        />
+        <Typography
+          className="article-card__date"
+          sx={{
+            fontSize: {
+              xs: "0.7rem",
+              sm: "0.8rem",
+            },
+          }}
+        >
+          {date}
+        </Typography>
       </div>
-      
+
       <div className="article-card__content">
         <div className="article-card__text">
-          <Typography variant="h2" className="article-card__title" dangerouslySetInnerHTML={{ __html: title }} />
+          <Typography
+            variant="h2"
+            className="article-card__title"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
           {preview && (
-            <Typography className="article-card__preview" sx={{
-              fontSize: {
-                xs: "0.7rem",
-                sm: "1rem"
-              },
-            }} >{preview}</Typography>
+            <Typography
+              className="article-card__preview"
+              sx={{
+                fontSize: {
+                  xs: "0.7rem",
+                  sm: "1rem",
+                },
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 3, 
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {preview}
+            </Typography>
           )}
+
           <div className="article-card__meta">
-            <Typography sx={{
-              fontSize: {
-                xs: "0.7rem",
-                sm: "0.8rem"
-              },
-            }}>{author}</Typography>
-            <Typography sx={{
-              fontSize: {
-                xs: "0.7rem",
-                sm: "0.8rem"
-              },
-            }}>{readTime}</Typography>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: "0.7rem",
+                  sm: "0.8rem",
+                },
+              }}
+            >
+              {author}
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: "0.7rem",
+                  sm: "0.8rem",
+                },
+              }}
+            >
+              {readTime}
+            </Typography>
           </div>
         </div>
         {image && (
           <img src={image} alt={title} className="article-card__image" />
         )}
       </div>
-      
+
       <div className="article-card__actions" onClick={handleActionClick}>
-        <IconButton className="article-card__action">
+        <IconButton className="article-card__action" sx={{
+            "&:hover": {
+              backgroundColor: "transparent",
+            },
+          }}>
           <Favorite fontSize="small" />
           <span>{likes}</span>
         </IconButton>
-        <IconButton className="article-card__action">
+        <IconButton className="article-card__action" sx={{
+            "&:hover": {
+              backgroundColor: "transparent",
+            },
+          }}>
           <ChatBubbleOutline fontSize="small" />
           <span>{comment_count}</span>
         </IconButton>
-        <IconButton className="article-card__action article-card__action--share">
+        <IconButton
+          className="article-card__action article-card__action--share"
+          sx={{
+            "&:hover": {
+              backgroundColor: "transparent",
+            },
+          }}
+        >
           <Share fontSize="small" />
           <span>Share</span>
         </IconButton>
