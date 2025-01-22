@@ -58,7 +58,7 @@ export const Comments: React.FC<CommentListProps> = ({
           onChange={(e) => setCommentText(e.target.value)}
         />
       
-        <Button variant="contained">
+        <Button type="submit" variant="contained">
           Comment
         </Button>
       </form>

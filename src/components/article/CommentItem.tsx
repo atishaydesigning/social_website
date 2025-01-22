@@ -90,7 +90,7 @@ const CommentItem: React.FC<CommentItemProps> = ({
             value={replyText}
             onChange={(e) => setReplyText(e.target.value)}
           />
-          <Button variant="contained">Add Reply</Button>
+          <Button type="submit" variant="contained">Add Reply</Button>
         </form>
       )}
 

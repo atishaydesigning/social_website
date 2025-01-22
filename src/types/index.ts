@@ -42,7 +42,11 @@ export interface PostHandlerProps {
   setContent: (content: string) => void;    
   handleFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void; 
   open: boolean;                            
-  handleClose: () => void;                  
+  handleClose: () => void;   
+  title:string,
+  content:string, 
+  selectedImage:string, 
+  setSelectedImage: (content: string) => void;         
 }
 
 export interface CommentItemProps {

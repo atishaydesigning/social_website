@@ -27,13 +27,13 @@ export const Header = () => {
     addArticle({
       id: Date.now(),
       title,
-      publication: content,
+      publication: "New Publications",
       comments: [],
       image: imageFileUrl,
       publicationIcon: "/p3.jpg",
       author: "KATE WATSON-SMYTH",
       readTime: "11 MIN READ",
-      preview: "What to do about bad lighting? How do I overcome decision paralysis? Is it OK to rip out original features? Can I use strong colour in small rooms? How to hide the TV – and more of your questions answered",
+      preview: content,
       likes: 849,
       comment_count: 69,
       date:"12/01/25",
@@ -68,7 +68,7 @@ export const Header = () => {
                 fontWeight: 600,
               }}
             >
-              Ciao, Blogs
+              Community
             </Typography>
           </NavLink>
           <div className="header__search">
@@ -110,6 +110,10 @@ export const Header = () => {
         handleFileChange={handleFileChange}
         open={open}
         handleClose={handleClose}
+        content={content}
+        title={title}
+        selectedImage={imageFileUrl}
+        setSelectedImage={setImageFileUrl}
       />
     </>
   );

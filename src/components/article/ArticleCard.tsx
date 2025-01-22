@@ -29,6 +29,8 @@ export const ArticleCard = ({
     e.stopPropagation();
   };
 
+  console.log("image",image)
+
   return (
     <article className="article-card" onClick={handleClick}>
       <div className="article-card__header">
@@ -53,9 +55,14 @@ export const ArticleCard = ({
       <div className="article-card__content">
         <div className="article-card__text">
           <Typography
-            variant="h2"
+            component="p"
             className="article-card__title"
             dangerouslySetInnerHTML={{ __html: title }}
+            sx={{
+              fontSize:"16px",
+              fontWeight:400,
+              wordBreak:"break-word"
+            }}
           />
           {preview && (
             <Typography
@@ -64,15 +71,17 @@ export const ArticleCard = ({
                 fontSize: {
                   xs: "0.7rem",
                   sm: "1rem",
-                },
+                }, 
                 display: "-webkit-box",
                 WebkitBoxOrient: "vertical",
                 WebkitLineClamp: 3, 
                 overflow: "hidden",
+                wordBreak:"break-word",
                 textOverflow: "ellipsis",
               }}
+              dangerouslySetInnerHTML={{ __html: preview }}
             >
-              {preview}
+              {/* {preview} */}
             </Typography>
           )}
 
