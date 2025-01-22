@@ -46,6 +46,11 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 const AddPost = ({handleAddPost, setTitle, setContent, handleFileChange, open, handleClose}: any) => {
+
+  const handleAdd =()=>{
+    handleAddPost();
+    handleClose();
+  }
   return (
     <BootstrapDialog
       onClose={handleClose}
@@ -83,18 +88,18 @@ const AddPost = ({handleAddPost, setTitle, setContent, handleFileChange, open, h
       </DialogTitle>
       
       <DialogContent dividers>
-        <form onSubmit={handleAddPost} className="post-form">
+        <form className="post-form">
           <div className="editor-section">
             <label>Post Title</label>
             <div className="editor-wrapper">
-              {/* <TestEditor updateFunction={setTitle} /> */}
+              <TestEditor updateFunction={setTitle} />
             </div>
           </div>
           
           <div className="editor-section">
             <label>Post Content</label>
             <div className="editor-wrapper">
-              {/* <TestEditor updateFunction={setContent} /> */}
+              <TestEditor updateFunction={setContent} />
             </div>
           </div>
           
@@ -118,7 +123,7 @@ const AddPost = ({handleAddPost, setTitle, setContent, handleFileChange, open, h
         <StyledButton className="secondary" onClick={handleClose}>
           Cancel
         </StyledButton>
-        <StyledButton className="primary" onClick={handleAddPost}>
+        <StyledButton className="primary" onClick={handleAdd}>
           Add Post
         </StyledButton>
       </DialogActions>

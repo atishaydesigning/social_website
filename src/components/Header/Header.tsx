@@ -3,13 +3,16 @@ import { AppBar, Toolbar, Typography, Button, InputBase } from "@mui/material";
 import { Search, Add } from "@mui/icons-material";
 import "./Header.scss";
 import AddPost from "../AddPost";
-import {Article} from  '@/types'
+import { Article } from "@/types";
+import { articles } from "@/data/articles";
+import { useArticleContext } from "@/context/ArticleContext";
 
 export const Header = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [imageFileUrl, setImageFileUrl] = useState<string>("");
   const [open, setOpen] = React.useState<boolean>(false);
+  const { addArticle } = useArticleContext();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) return;
@@ -19,28 +22,38 @@ export const Header = () => {
     setImageFileUrl(fileUrl);
   };
 
-  const handleAddPost = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(title, content)
-    if (!title || !content) return;
+  // const handleAddPost = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   console.log(title)
+  //   if (!title || !content) return;
 
-    const newPost: Article = {
+  //   const newPost: Article = {
+  //     id: Date.now(),
+  //     title,
+  //     publication:content,
+  //     comments: [],
+  //     image: imageFileUrl, // store the file’s object URL
+  //   };
+
+  //   setPosts([newPost, ...posts]);
+  //   setTitle("");
+  //   setContent("");
+  //   setImageFileUrl("");
+  // };
+
+  const handleAddPost = () => {
+    addArticle({
       id: Date.now(),
       title,
-      content,
+      publication: content,
       comments: [],
-      imageUrl: imageFileUrl, // store the file’s object URL
-    };
-
-    setPosts([newPost, ...posts]);
-    setTitle("");
-    setContent("");
-    setImageFileUrl("");
+      image: imageFileUrl,
+    });
   };
 
-  const handleClose= () =>{
-    setOpen(!open)
-  }
+  const handleClose = () => {
+    setOpen(!open);
+  };
   return (
     <>
       <AppBar
@@ -65,6 +78,7 @@ export const Header = () => {
             color="primary"
             startIcon={<Add />}
             className="header__add-button"
+            onClick={handleClose}
           >
             Add Post
           </Button>

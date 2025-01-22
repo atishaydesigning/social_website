@@ -7,10 +7,14 @@ import { Header } from "./components/Header/Header";
 import Index from "./pages/Index";
 import { ArticleList } from "./components/ArticleList";
 import { ArticleDetail } from "./pages/ArticleDetails";
+import { articles } from "./data/articles";
+import { ArticleProvider } from "./context/ArticleContext";
+
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
+    <ArticleProvider>
       <CssBaseline />
       <BrowserRouter>
         <Header />
@@ -20,6 +24,7 @@ function App() {
           <Route path="/article/:id" element={<ArticleDetail />} />
         </Routes>
       </BrowserRouter>
+    </ArticleProvider>
     </ThemeProvider>
   );
 }

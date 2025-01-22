@@ -3,10 +3,14 @@ import { Container } from '@mui/material';
 import { CategoryNav } from '../components/CategoryNav';
 import { ArticleCard } from '../components/ArticleCard';
 import { FeaturedSidebar } from '../components/FeaturedSidebar';
-import { articles } from '../data/articles';
+// import { articles } from '../data/articles';
 import '../styles/index.scss';
+import { useArticleContext } from '@/context/ArticleContext';
 
 const Index = () => {
+    const { articles } = useArticleContext();  
+  
+    console.log("articles",articles)
   return (
     <div className="index">
       <CategoryNav />
