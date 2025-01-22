@@ -3,48 +3,24 @@ import { Favorite, ChatBubbleOutline, Share } from '@mui/icons-material';
 import { useParams } from 'react-router-dom';
 import { Comments } from '../components/Comments';
 import './ArticleDetails.scss';
-
-const articles = [
-  {
-    id: "1",
-    publication: "THE GENE POOL",
-    publicationIcon: "./p1.jpg",
-    title: "Courage & Cowardice",
-    author: "GENE WEINGARTEN",
-    readTime: "5 MIN READ",
-    date: "OCTOBER 26, 2024",
-    preview: "There is such a thing as moral authority. It may be intangible, but it is there, and it can be powerful. It is essential to newspaper opinion writing. The Washington Post owner flushed it down the toilet yesterday. What is left is invertebrate.\n\nThis action has damaged everyone, not the least of whom are the dedicated, talented employees of The Post, whose careers are likely now diminished because, well, do they work for a great newspaper anymore? They are like homeowners whose neighborhood suddenly gets a pig slaughterhouse. All the home values are diminished.\n\nIn the one or two days before the election, expect to read a banal, obligatory piece in the Post — most newspapers do it — urging everyone to vote, for the sake of civic responsibility. Why should you believe it from The Post, now? The hypocrisy is thick and gooey. This is a newspaper that looked at the stark, existential choice facing the country, with the people in fear, and decided to sit this one out. They're not voting. Why should you?",
-    image: "./i1.jpg",
-    likes: 849,
-    comments: [
-      {
-        id: "1",
-        author: "Noah Pierre",
-        avatar: "./p2.jpg",
-        time: "58 minutes ago",
-        content: "I'm a bit unclear about how condensation forms in the water cycle. Can someone break it down?",
-        likes: 25,
-        dislikes: 3,
-        replies: [
-          {
-            id: "2",
-            author: "Skill Sprout",
-            avatar: "./p4.jpg",
-            time: "8 minutes ago",
-            content: "Condensation happens when water vapor cools down and changes back into liquid droplets. It's the step before precipitation. The example with the glass of ice water in the video was a great visual!",
-            likes: 2,
-            dislikes: 0
-          }
-        ]
-      }
-    ]
-  }
-];
+import { useEffect, useState } from 'react';
+import { Article } from '@/types';
+import { articles } from '@/data/articles';
 
 export const ArticleDetail = () => {
+  const [article, setArticle] = useState<Article>()
   const { id } = useParams();
-  const article = articles.find(a => a.id === id);
+  
+  useEffect(() => {
+    if(id){
+      const data = articles.find((a:Article) => a.id === parseInt(id));
+      setArticle(data)
+    }
+  }, [id])
 
+  console.log(article,"article")
+
+  
   if (!article) return <div>Article not found</div>;
 
   return (
@@ -72,9 +48,9 @@ export const ArticleDetail = () => {
           <Typography>{article.readTime}</Typography>
         </Box>
 
-        {article.image && (
+        {/* {article.image && ( */}
           <img src={article.image} alt={article.title} className="article-detail__image" />
-        )}
+        {/* // )} */}
 
         <Typography className="article-detail__content">
           {article.preview}
@@ -95,7 +71,7 @@ export const ArticleDetail = () => {
           </IconButton>
         </Box>
 
-        <Comments comments={article.comments} />
+        <Comments postId={article?.id} setPosts={()=>{}} comments={article.comments} />
       </Container>
     </Box>
   );

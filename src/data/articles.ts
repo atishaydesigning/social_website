@@ -1,57 +1,111 @@
-export interface Article {
-  publication: string;
-  publicationIcon: string;
-  title: string;
-  author: string;
-  readTime: string;
-  image?: string;
-  preview?: string;
-  likes: number;
-  comments: number;
-}
+import { Article } from '@/types'
 
 export const articles: Article[] = [
   {
-    publication: "WANDERLUST DIARIES",
+    id: 1,
+    publication: "THE GENE POOL",
+    publicationIcon: "./p1.jpg",
+    title: "Courage & Cowardice",
+    author: "GENE WEINGARTEN",
+    readTime: "5 MIN READ",
+    image: "/i1.jpg",
+    likes: 849,
+    comment_count: 69,
+    date:"12/01/25",
+    comments: [
+      {
+        id: 101,
+        parentId: null,
+        postId: 1,
+        text: "Excited to join this community!",
+        replies: [
+          {
+            id: 102,
+            parentId: 101,
+            postId: 1,
+            text: "Welcome aboard!",
+          },
+        ],
+      },
+      {
+        id: 103,
+        parentId: null,
+        postId: 1,
+        text: "Hello everyone!",
+        replies: [],
+      },
+    ],
+  },
+  {
+    id: 2,
+    publication: "BITS & PIECES",
+    publicationIcon: "./p2.jpg",
+    title: "The Sweet Spot",
+    author: "STEVE SKROVAN",
+    readTime: "9 MIN READ",
+    preview: 'A Memoir in Four Parts: Part One "Insult to the Brain"',
+    image: "/i2.jpg",
+    likes: 849,
+    comment_count: 69,
+    date:"12/01/25",
+    comments: [
+      {
+        id: 101,
+        parentId: null,
+        postId: 1,
+        text: "Excited to join this community!",
+        replies: [
+          {
+            id: 102,
+            parentId: 101,
+            postId: 1,
+            text: "Welcome aboard!",
+          },
+        ],
+      },
+      {
+        id: 103,
+        parentId: null,
+        postId: 1,
+        text: "Hello everyone!",
+        replies: [],
+      },
+    ],
+  },
+  {
+    id: 3,
+    publication: "MAD ABOUT THE HOUSE BY KATE WATSON-SMYTH",
     publicationIcon: "./p3.jpg",
-    title: "The Hidden Gems of Bali",
-    author: "SARAH MILLER",
-    readTime: "7 MIN READ",
-    image: "./i1.jpg",
-    likes: 35,
-    comments: 8,
-  },
-  {
-    publication: "TRAVEL TALES",
-    publicationIcon: "./p4.jpg",
-    title: "Exploring the Streets of Paris",
-    author: "JAMES CARTER",
-    readTime: "6 MIN READ",
-    preview: 'A romantic journey through the city of lights, from the Eiffel Tower to Montmartre.',
-    image: "./i2.jpg",
-    likes: 28,
-    comments: 5,
-  },
-  {
-    publication: "OFF THE BEATEN PATH",
-    publicationIcon: "./p5.jpg",
-    title: "Discovering Patagonia",
-    author: "EMILY ROBINSON",
-    readTime: "10 MIN READ",
-    preview: "Unveiling the breathtaking landscapes of Patagonia. A guide to hiking, wildlife, and adventure.",
-    image: "./i3.jpg",
-    likes: 20,
-    comments: 2,
-  },
-  {
-    publication: "ADVENTURE AWAITS",
-    publicationIcon: "./p6.jpg",
-    title: "Top 10 Beaches in the Maldives",
-    author: "DAVID ANDERSON",
-    readTime: "8 MIN READ",
-    preview: "Crystal-clear waters, white sands, and the best spots for snorkeling and relaxation.",
-    image: "./i4.jpg",
-    likes: 42,
-    comments: 12,
+    title: "Your decorating dilemmas solved",
+    author: "KATE WATSON-SMYTH",
+    readTime: "11 MIN READ",
+    preview: "What to do about bad lighting? How do I overcome decision paralysis? Is it OK to rip out original features? Can I use strong colour in small rooms? How to hide the TV – and more of your questions answered",
+    image: "/i3.jpg",
+    likes: 849,
+    comment_count: 69,
+    date:"12/01/25",
+    comments: [
+      {
+        id: 101,
+        parentId: null,
+        postId: 1,
+        text: "Excited to join this community!",
+        replies: [
+          {
+            id: 102,
+            parentId: 101,
+            postId: 1,
+            text: "Welcome aboard!",
+          },
+        ],
+      },
+      {
+        id: 103,
+        parentId: null,
+        postId: 1,
+        text: "Hello everyone!",
+        replies: [],
+      },
+    ],
   },
 ];

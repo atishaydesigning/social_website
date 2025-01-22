@@ -1,31 +1,83 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography, Button, InputBase } from '@mui/material';
-import { Search, Add } from '@mui/icons-material';
-import './Header.scss';
+import React, { useState } from "react";
+import { AppBar, Toolbar, Typography, Button, InputBase } from "@mui/material";
+import { Search, Add } from "@mui/icons-material";
+import "./Header.scss";
+import AddPost from "../AddPost";
+import {Article} from  '@/types'
 
 export const Header = () => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [imageFileUrl, setImageFileUrl] = useState<string>("");
+  const [open, setOpen] = React.useState<boolean>(false);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) return;
+    const file = e.target.files[0];
+    // Convert file to an object URL
+    const fileUrl = URL.createObjectURL(file);
+    setImageFileUrl(fileUrl);
+  };
+
+  const handleAddPost = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(title, content)
+    if (!title || !content) return;
+
+    const newPost: Article = {
+      id: Date.now(),
+      title,
+      content,
+      comments: [],
+      imageUrl: imageFileUrl, // store the file’s object URL
+    };
+
+    setPosts([newPost, ...posts]);
+    setTitle("");
+    setContent("");
+    setImageFileUrl("");
+  };
+
+  const handleClose= () =>{
+    setOpen(!open)
+  }
   return (
-    <AppBar position="static" color="transparent" elevation={0} className="header">
-      <Toolbar className="header__toolbar">
-        <Typography variant="h5" className="header__title">
-          Ciao, Blogs
-        </Typography>
-        <div className="header__search">
-          <Search className="header__search-icon" />
-          <InputBase
-            placeholder="Search here ...."
-            className="header__search-input"
-          />
-        </div>
-        <Button
-          variant="contained"
-          color="primary"
-          startIcon={<Add />}
-          className="header__add-button"
-        >
-          Add Post
-        </Button>
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar
+        position="static"
+        color="transparent"
+        elevation={0}
+        className="header"
+      >
+        <Toolbar className="header__toolbar">
+          <Typography variant="h5" className="header__title">
+            Ciao, Blogs
+          </Typography>
+          <div className="header__search">
+            <Search className="header__search-icon" />
+            <InputBase
+              placeholder="Search here ...."
+              className="header__search-input"
+            />
+          </div>
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<Add />}
+            className="header__add-button"
+          >
+            Add Post
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <AddPost
+        handleAddPost={handleAddPost}
+        setTitle={setTitle}
+        setContent={setContent}
+        handleFileChange={handleFileChange}
+        open={open}
+        handleClose={handleClose}
+      />
+    </>
   );
 };

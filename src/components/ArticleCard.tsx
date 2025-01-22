@@ -3,20 +3,8 @@ import { Box, Typography, Avatar, IconButton } from '@mui/material';
 import { Favorite, ChatBubbleOutline, Share } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import './ArticleCard.scss';
+import {ArticleCardProps} from "@/types"
 
-interface ArticleCardProps {
-  id: string;
-  publication: string;
-  publicationIcon: string;
-  title: string;
-  author: string;
-  readTime: string;
-  image?: string;
-  preview?: string;
-  likes: number;
-  comments: number;
-  date: string;
-}
 
 export const ArticleCard = ({
   id,
@@ -28,7 +16,7 @@ export const ArticleCard = ({
   image,
   preview,
   likes,
-  comments,
+  comment_count,
   date,
 }: ArticleCardProps) => {
   const navigate = useNavigate();
@@ -74,7 +62,7 @@ export const ArticleCard = ({
         </IconButton>
         <IconButton className="article-card__action">
           <ChatBubbleOutline fontSize="small" />
-          <span>{comments}</span>
+          <span>{comment_count}</span>
         </IconButton>
         <IconButton className="article-card__action article-card__action--share">
           <Share fontSize="small" />

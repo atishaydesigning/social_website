@@ -1,0 +1,61 @@
+.post-form {
+  .editor-section {
+    margin-bottom: 24px;
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      color: #8E9196;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .editor-wrapper {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 12px;
+      background: #fafafa;
+      transition: all 0.2s ease;
+
+      &:focus-within {
+        border-color: #F97316;
+        box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.1);
+      }
+    }
+  }
+
+  .file-upload-section {
+    border: 2px dashed #e0e0e0;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: #F97316;
+      background: rgba(249, 115, 22, 0.05);
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .file-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .upload-icon {
+      font-size: 24px;
+    }
+
+    .upload-text {
+      color: #8E9196;
+      font-size: 0.875rem;
+    }
+  }
+}
