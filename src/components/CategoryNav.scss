@@ -19,17 +19,9 @@
     color: $text-color ;
     min-width: auto ;
     
-    &:hover {
-      background-color: rgba($gray-light, 0.2) ;
-    }
-    
-    &--active {
-      background-color: $text-color ;
-      color: white ;
-      
-      &:hover {
-        background-color: scale($text-color, -5%) ;
-      }
+    &-active {
+      background-color: rgb(245, 113, 65) !important;
+      color: white;
     }
   }
 }

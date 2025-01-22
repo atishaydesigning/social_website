@@ -3,23 +3,22 @@ import { Box, Button } from '@mui/material';
 import './CategoryNav.scss';
 
 const categories = [
-  "Staff Picks",
-  "Culture",
-  "Technology",
-  "Business",
-  "U.S. Politics",
+  "AI & Tech",
+  "Trending Places",
+  "Web3",
+  "Space",
+  "Wellness",
   "Finance",
-  "Food & Drink",
-  "Sports",
-  "Art & Illustration",
-  "World Politics",
-  "Health Politics",
-  "News",
-  "Fashion & Beauty",
-  "Music",
-  "Faith & Spirituality",
-  "Climate & Environment",
+  "Climate",
+  "Food Trends",
+  "VR & AR",
+  "Gaming",
+  "Pop Culture",
+  "Fashion",
+  "Nomad Life",
+  "Esports"
 ];
+
 
 export const CategoryNav = () => {
   return (
@@ -29,7 +28,7 @@ export const CategoryNav = () => {
           <Button
             key={category}
             className={`category-nav__button ${
-              category === "Staff Picks" ? "category-nav__button--active" : ""
+              category === "Trending Places" ? "category-nav__button-active" : ""
             }`}
           >
             {category}

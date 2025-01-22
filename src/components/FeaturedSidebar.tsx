@@ -5,36 +5,37 @@ import './FeaturedSidebar.scss';
 
 const featuredPublications = [
   {
-    name: "The Free Press",
-    author: "Bari Weiss",
-    icon: "/placeholder.svg",
+    name: "The Curious Chronicle",
+    author: "Alex Morgan",
+    icon: "./p1.jpg",
   },
   {
-    name: "Dan Harris",
-    author: "Dan Harris",
-    icon: "/placeholder.svg",
+    name: "Echoes of the Horizon",
+    author: "Lila Carter",
+    icon: "./p2.jpg",
   },
   {
-    name: "Hung Up",
-    author: "Hunter Harris",
-    icon: "/placeholder.svg",
+    name: "The Wanderer's Journal",
+    author: "Ethan Woods",
+    icon: "./p3.jpg",
   },
   {
-    name: "What To Cook When You Don't Feel Like Cooking",
-    author: "Caroline Chambers",
-    icon: "/placeholder.svg",
+    name: "Flavorful Escapades",
+    author: "Sophie Bennett",
+    icon: "./p4.jpg",
   },
   {
-    name: "Kareem Abdul-Jabbar",
-    author: "Kareem Abdul-Jabbar",
-    icon: "/placeholder.svg",
+    name: "Voices Unbound",
+    author: "Jared Blake",
+    icon: "./p5.jpg",
   },
   {
-    name: "Story Club with George Saunders",
-    author: "George Saunders",
-    icon: "/placeholder.svg",
+    name: "Tales from the Depths",
+    author: "Mia Harper",
+    icon: "./p6.jpg",
   },
 ];
+
 
 export const FeaturedSidebar = () => {
   return (

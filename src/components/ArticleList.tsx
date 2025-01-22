@@ -5,13 +5,13 @@ const articles = [
   {
     id: "1",
     publication: "THE GENE POOL",
-    publicationIcon: "/placeholder.svg",
+    publicationIcon: "./p1.jpg",
     title: "Courage & Cowardice",
     author: "GENE WEINGARTEN",
     readTime: "5 MIN READ",
     date: "OCTOBER 26, 2024",
     preview: "There is such a thing as moral authority. It may be intangible, but it is there, and it can be powerful...",
-    image: "/lovable-uploads/af4a3080-b48d-4b3c-87ce-17dbb718b0fa.png",
+    image: "./i1.jpg",
     likes: 849,
     comments: 69
   },
